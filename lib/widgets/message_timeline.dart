@@ -34,7 +34,7 @@ class MessageTimeline extends StatelessWidget {
           children: <Widget>[
             Flexible(
               child: Text(
-                message ?? "",
+                message,
                 textAlign: TextAlign.center,
                 style: headerTitleStyle ?? const TextStyle(fontSize: 16),
               ),
