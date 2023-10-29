@@ -25,6 +25,7 @@ class FlutterCustomTimeline extends StatelessWidget {
     this.headerBackgroundColor,
     this.headerTitleStyle,
     this.headerSubTitleStyle,
+    this.isHeaderNode = true,
   });
 
   final List<StepperData> steppers;
@@ -44,6 +45,7 @@ class FlutterCustomTimeline extends StatelessWidget {
   final bool isLast;
   final TextStyle? headerTitleStyle;
   final TextStyle? headerSubTitleStyle;
+  final bool isHeaderNode;
 
   @override
   Widget build(BuildContext context) {
@@ -62,22 +64,23 @@ class FlutterCustomTimeline extends StatelessWidget {
                   physics: const NeverScrollableScrollPhysics(),
                   shrinkWrap: true,
                   slivers: <Widget>[
-                    SliverList(
-                      delegate: SliverChildListDelegate(
-                        <Widget>[
-                          if (steppers[index].headerTitle != null) ...[
-                            MessageTimeline(
-                              headerTitleStyle: headerTitleStyle,
-                              headerSubTitleStyle: headerSubTitleStyle,
-                              message: steppers[index].headerTitle!,
-                              headerXy: headerXy,
-                              backGroundColor: headerBackgroundColor,
-                              subTitle: steppers[index].headerSubtitle,
-                            ),
-                          ]
-                        ],
-                      ),
+                if (steppers[index].headerTitle != null && isHeaderNode) ...[
+                  SliverList(
+                    delegate: SliverChildListDelegate(
+                      <Widget>[
+                        MessageTimeline(
+                          headerTitleStyle: headerTitleStyle,
+                          headerSubTitleStyle: headerSubTitleStyle,
+                          message: steppers[index].headerTitle!,
+                          headerXy: headerXy,
+                          backGroundColor: headerBackgroundColor,
+                          subTitle: steppers[index].headerSubtitle,
+                        ),
+                      ],
                     ),
+                  ),
+                ],
+
                     CustomTimeLine(
                       data: data,
                       timeLineBuilder: timeLineBuilder,

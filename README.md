@@ -11,29 +11,86 @@ and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/developing-packages).
 -->
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+This Package is used to create a custom steppers inside the Header Message and Header Subtitle Node, It is a of wrapper of flutter_timeline.
 
 ## Features
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+* Easy Customization: Effortlessly customize the colors and alignment in the form of horizontal and vertical to suit your requirements.
+
+* Flexible Size Control: Define the size of the Header Nodes(Message Nodes) according to your needs. Specify the width and height to ensure a perfect fit within your application's UI.
+
+* Use it to show the sports timeline like Football, cricket, order details stepper etc.
+
+* Default it cones with the Header Nodes. you can customise as per your need if Header nodes is not required in your requirements.
 
 ## Getting started
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
-
-## Usage
-
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
-
+import package
 ```dart
-const like = 'sample';
+import 'package:flutter_custom_timeline/package.dart';
+```
+
+## Usage:-
+For Sports like Foot Ball, Cricket, and any other Events Steppers
+ ```dart
+ void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        useMaterial3: true,
+      ),
+      home: FlutterCustomTimeline(
+        alignment: TimelineAlign.manual,
+        lineXy: 0.3,
+        headerXy: -0.7,
+        steppers: getStepperData(),
+      ),
+    );
+  }
+}
+ ```
+![Screenshot_1698565178.png](..%2F..%2F..%2FDesktop%2FScreenshot_1698565178.png)
+
+## timeLineBuilder-
+No  other properties will work expect isHeaderNode if you give your own timeline. Inside you time line Widget properties will work
+```agsl
+ FlutterCustomTimeline(
+        timeLineBuilder: (context, index) {
+          return TimelineTile(
+            isFirst: true,
+            startChild: Text("Date"),
+            endChild: Text("Title"),
+          );
+        },
+        //   alignment: TimelineAlign.manual,
+        //   lineXy: 0.3,
+        //   headerXy: -0.7,
+        steppers: getStepperData(),
+      )
 ```
 
 ## Additional information
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+1. headerXy:- It is used to align the header nodes negative double value(-0.7) will align to left and positive value (0.4) will align to right
+2. lineXy:- It is ued to align the stepper timeline, Alingment.manual will only work for lineXy
+3. steppers:- It will take List of Steppers
+4. isFirst:- Used to give the stepper at first
+5. isLast:- Used to give the stepper line at last
+6. isHeaderNode: bool is used to show the header Node default is 'true'
+7. backgroundColor: It used to change the background color of all the steppers
+8. afterLineStyle: It is used to style the line after the node
+9. beforeLineStyle:- It is used to style the line before node
+10. hasIndicator:- bool is used to show the indicator
+11. headerStyle: used to style the header Text
+12. subHeaderStyle: used to style the sub Header Text
+13. headerBackgroundColor:- used to change the header background color
+14. timeLineBuilder:- used to full customization your time line.
