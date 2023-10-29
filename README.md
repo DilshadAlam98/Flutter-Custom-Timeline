@@ -57,8 +57,9 @@ class MyApp extends StatelessWidget {
     );
   }
 }
- ```
-![Screenshot_1698565178.png](..%2F..%2F..%2FDesktop%2FScreenshot_1698565178.png)
+ ```![Sports Timeline](https://github.com/Shadil-rayeen/Flutter-Custom-Timeline/assets/84621229/eecedda4-70a2-4ea8-8479-7ee32042d9f2)
+
+
 
 ## timeLineBuilder-
 No  other properties will work expect isHeaderNode if you give your own timeline. Inside you time line Widget properties will work
