@@ -57,7 +57,9 @@ class MyApp extends StatelessWidget {
     );
   }
 }
- ```![Sports Timeline](https://github.com/Shadil-rayeen/Flutter-Custom-Timeline/assets/84621229/eecedda4-70a2-4ea8-8479-7ee32042d9f2)
+ ```
+ 
+![Sports Timeline](https://github.com/Shadil-rayeen/Flutter-Custom-Timeline/assets/84621229/eecedda4-70a2-4ea8-8479-7ee32042d9f2)
 
 
 
