@@ -58,15 +58,13 @@ class MyApp extends StatelessWidget {
   }
 }
  ```
+## Left Align
 
 <img width="330" alt="Screenshot 2023-10-29 at 2 09 52 PM" src="https://github.com/Shadil-rayeen/Flutter-Custom-Timeline/assets/84621229/5d23d60c-dbf5-4279-8642-1b856dc93ed0">
 
-
+## Center Align
  <img width="333" alt="Screenshot 2023-10-29 at 2 10 24 PM" src="https://github.com/Shadil-rayeen/Flutter-Custom-Timeline/assets/84621229/c043bba7-3da7-4435-a153-74903815b2b7">
 
-
-
-![Sports Timeline](https://github.com/Shadil-rayeen/Flutter-Custom-Timeline/assets/84621229/eecedda4-70a2-4ea8-8479-7ee32042d9f2)
 
 
 
