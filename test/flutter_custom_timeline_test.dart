@@ -1,6 +1,5 @@
+import 'package:flutter_custom_timeline/package.dart';
 import 'package:flutter_test/flutter_test.dart';
-
-import 'package:flutter_custom_timeline/flutter_custom_timeline.dart';
 
 void main() {
   test('adds one to input values', () {
