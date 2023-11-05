@@ -21,6 +21,9 @@ class MyApp extends StatelessWidget {
         lineXy: 0.3,
         headerXy: -0.7,
         steppers: getStepperData(),
+        rightNodeTitleStyle: const TextStyle(fontSize: 14),
+        rightNodeSubtitleStyle: const TextStyle(fontSize: 18),
+        leftNodeTitleStyle: const TextStyle(fontSize: 16, color: Colors.red),
       ),
     );
   }

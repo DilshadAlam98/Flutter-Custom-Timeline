@@ -26,6 +26,10 @@ class FlutterCustomTimeline extends StatelessWidget {
     this.headerTitleStyle,
     this.headerSubTitleStyle,
     this.isHeaderNode = true,
+    this.rightNodeSubtitleStyle,
+    this.rightNodeTitleStyle,
+    this.leftNodeTitleStyle,
+    this.leftNodeSubtitleStyle,
   });
 
   final List<StepperData> steppers;
@@ -46,6 +50,10 @@ class FlutterCustomTimeline extends StatelessWidget {
   final TextStyle? headerTitleStyle;
   final TextStyle? headerSubTitleStyle;
   final bool isHeaderNode;
+  final TextStyle? leftNodeTitleStyle;
+  final TextStyle? leftNodeSubtitleStyle;
+  final TextStyle? rightNodeTitleStyle;
+  final TextStyle? rightNodeSubtitleStyle;
 
   @override
   Widget build(BuildContext context) {
@@ -64,23 +72,22 @@ class FlutterCustomTimeline extends StatelessWidget {
                   physics: const NeverScrollableScrollPhysics(),
                   shrinkWrap: true,
                   slivers: <Widget>[
-                if (steppers[index].headerTitle != null && isHeaderNode) ...[
-                  SliverList(
-                    delegate: SliverChildListDelegate(
-                      <Widget>[
-                        MessageTimeline(
-                          headerTitleStyle: headerTitleStyle,
-                          headerSubTitleStyle: headerSubTitleStyle,
-                          message: steppers[index].headerTitle!,
-                          headerXy: headerXy,
-                          backGroundColor: headerBackgroundColor,
-                          subTitle: steppers[index].headerSubtitle,
+                    if (steppers[index].headerTitle != null && isHeaderNode) ...[
+                      SliverList(
+                        delegate: SliverChildListDelegate(
+                          <Widget>[
+                            MessageTimeline(
+                              headerTitleStyle: headerTitleStyle,
+                              headerSubTitleStyle: headerSubTitleStyle,
+                              message: steppers[index].headerTitle!,
+                              headerXy: headerXy,
+                              backGroundColor: headerBackgroundColor,
+                              subTitle: steppers[index].headerSubtitle,
+                            ),
+                          ],
                         ),
-                      ],
-                    ),
-                  ),
-                ],
-
+                      ),
+                    ],
                     CustomTimeLine(
                       data: data,
                       timeLineBuilder: timeLineBuilder,
@@ -93,6 +100,10 @@ class FlutterCustomTimeline extends StatelessWidget {
                       afterLineStyle: afterLineStyle,
                       isLast: isLast,
                       isFirst: isFirst,
+                      leftNodeSubtitleStyle: leftNodeSubtitleStyle,
+                      leftNodeTitleStyle: leftNodeTitleStyle,
+                      rightNodeSubtitleStyle: rightNodeSubtitleStyle,
+                      rightNodeTitleStyle: rightNodeTitleStyle,
                     ),
                   ],
                 );
@@ -119,6 +130,10 @@ class CustomTimeLine extends StatelessWidget {
     this.lineXY,
     this.indicatorXY = 0.5,
     this.alignment = TimelineAlign.center,
+    required this.rightNodeTitleStyle,
+    required this.rightNodeSubtitleStyle,
+    required this.leftNodeTitleStyle,
+    required this.leftNodeSubtitleStyle,
   }) : super(key: key);
 
   final List<TimeLineSteps>? data;
@@ -132,6 +147,10 @@ class CustomTimeLine extends StatelessWidget {
   final double? lineXY;
   final double indicatorXY;
   final TimelineAlign alignment;
+  final TextStyle? leftNodeTitleStyle;
+  final TextStyle? leftNodeSubtitleStyle;
+  final TextStyle? rightNodeTitleStyle;
+  final TextStyle? rightNodeSubtitleStyle;
 
   @override
   Widget build(BuildContext context) {
@@ -143,10 +162,14 @@ class CustomTimeLine extends StatelessWidget {
           final startChild = TimeLineChild(
             title: event.leftTitle,
             subtitle: event.leftSubtitle,
+            tittleStyle: leftNodeTitleStyle,
+            subtitleStyle: leftNodeSubtitleStyle,
           );
           final endChild = TimeLineChild(
             title: event.rightTitle,
             subtitle: event.rightSubtitle,
+            tittleStyle: rightNodeTitleStyle,
+            subtitleStyle: rightNodeSubtitleStyle,
           );
 
           return timeLineBuilder?.call(context, index) ??

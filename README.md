@@ -21,7 +21,7 @@ This Package is used to create a custom steppers inside the Header Message and H
 
 * Use it to show the sports timeline like Football, cricket, order details stepper etc.
 
-* Default it cones with the Header Nodes. you can customise as per your need if Header nodes is not required in your requirements.
+* Default it comes with the Header Nodes. you can customise as per your need if Header nodes is not required in your requirements.
 
 ## Getting started
 
